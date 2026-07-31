@@ -38,4 +38,4 @@ try:
 except KeyboardInterrupt:
     print("\nStopping attack, restoring laptop's connection...")
     restore(victim_mac)
-    print("Done. Laptop reconnected.")
+    print("Done my goat of kings. Laptop reconnected.")
