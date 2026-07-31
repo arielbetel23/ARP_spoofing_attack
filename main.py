@@ -31,6 +31,7 @@ print("you can view the answers to the following quetions by running the command
 print("to stop the attack, press Ctrl+C")
 victim_ip = input("Enter the IP address of the device you want to attack: ")
 router_ip = input("Enter the default gateway IP address of the network (usually your router's IP): ")
+print("Attack is active. Press Ctrl+C to stop the attack and restore the connection.")
 
 
 victim_mac = get_victim_mac()
